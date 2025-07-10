@@ -1,0 +1,60 @@
+{
+  "network": "ethereum-mainnet",
+  "chainId": 1,
+  "alchemy": {
+    "apiKey": "ALCHEMY_API_KEY",
+    "endpoint": "https://eth-mainnet.g.alchemy.com/v2/ALCHEMY_API_KEY"
+  },
+  "contract": {
+    "name": "Deutsche EUR Token",
+    "symbol": "dEUR",
+    "address": "0x0a8f00afe6c70a85a94b91640fd75a391747a8bf",
+    "decimals": 18,
+    "abiFile": "./contracts/erc20_deur_abi.json"
+  },
+  "masterWallet": {
+    "address": "0x4b258b2aD290190567f25272465759EBF6cB9136",
+    "privateKeyEncrypted": "./secrets/0x4b258b2aD290190567f25272465759EBF6cB9136_pk.enc"
+  },
+  "monitoring": {
+    "enabled": true,
+    "trackEvents": [
+      "Transfer",
+      "Approval"
+    ],
+    "trackAddresses": [
+      "0x4b258b2aD290190567f25272465759EBF6cB9136",
+      "0x00000000219ab540356cBB839Cbe05303d7705Fa"
+    ],
+    "startBlock": "latest"
+  },
+  "logging": {
+    "level": "info",
+    "logToFile": true,
+    "logFilePath": "./logs/alchemy_integration.log"
+  },
+  "security": {
+    "enableEncryption": true,
+    "certFile": "./certs/47_cert.pem",
+    "allowedIPs": ["1.2.3.4/32", "127.0.0.1/32"],
+    "webhookUrl": "https://s470shi.org/webhook/alchemy"
+  },
+  "integration": {
+    "OCOSApp": {
+      "enabled": true,
+      "walletConnect": true
+    },
+    "metamask": {
+      "enabled": true
+    }
+  },
+  "transaction": {
+    "minConfirmations": 3,
+    "gasLimit": 21000,
+    "gasMultiplier": 1.2
+  },
+  "archive": {
+    "jsonFiles": "./archive/json/",
+    "transactionReceipts": "./archive/receipts/"
+  }
+}
